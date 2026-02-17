@@ -24,9 +24,12 @@ function usePresenterMode() {
   return params.get('presenter') === '1';
 }
 
-function PresentationView({ currentSlide, setCurrentSlide }) {
+function PresentationView({ currentSlide, setCurrentSlide, isMobile }) {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomedImageSrc, setZoomedImageSrc] = useState(null);
   const containerRef = useRef(null);
+  const contentRef = useRef(null);
   const slide = slides[currentSlide];
   const Icon = slide?.icon;
 
@@ -60,6 +63,10 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (isZoomed) {
+        if (e.key === 'Escape') setIsZoomed(false);
+        return;
+      }
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         if (currentSlide === slides.length - 1 && slide?.isThankYou) return;
@@ -75,7 +82,45 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleFullscreen, currentSlide, slide?.isThankYou]);
+  }, [toggleFullscreen, currentSlide, slide?.isThankYou, isZoomed]);
+
+  useEffect(() => {
+    const handleImageClick = (e) => {
+      setZoomedImageSrc(e.target.src);
+      setIsZoomed(true);
+    };
+
+    const contentDiv = contentRef.current;
+    if (!contentDiv) return;
+
+    // Use MutationObserver to handle dynamic content updates (like dangerouslySetInnerHTML)
+    const observer = new MutationObserver(() => {
+      const zoomableImages = contentDiv.querySelectorAll('img#zoomin');
+      zoomableImages.forEach(img => {
+        // Remove old listener to prevent duplicates
+        img.removeEventListener('click', handleImageClick);
+        img.addEventListener('click', handleImageClick);
+        img.style.cursor = 'zoom-in';
+      });
+    });
+
+    observer.observe(contentDiv, { childList: true, subtree: true });
+
+    // Initial attach
+    const zoomableImages = contentDiv.querySelectorAll('img#zoomin');
+    zoomableImages.forEach(img => {
+      img.addEventListener('click', handleImageClick);
+      img.style.cursor = 'zoom-in';
+    });
+
+    return () => {
+      observer.disconnect();
+      const images = contentDiv.querySelectorAll('img#zoomin');
+      images.forEach(img => {
+        img.removeEventListener('click', handleImageClick);
+      });
+    };
+  }, [currentSlide, slide]);
 
   return (
     <div
@@ -133,9 +178,8 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
               </div>
             </div>
 
-            <div className="flex-1 min-h-0 overflow-auto">
-              <p className="text-[clamp(0.9rem,2vw,1.25rem)] text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                {slide.content}
+            <div className="flex-1 min-h-0 overflow-auto" ref={contentRef}>
+              <p className="text-[clamp(0.9rem,2vw,1.25rem)] text-slate-700 leading-relaxed mb-4 sm:mb-6" dangerouslySetInnerHTML={{ __html: slide.content}}>
               </p>
               {slide.list && (
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
@@ -147,7 +191,29 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
                   ))}
                 </ul>
               )}
+              {/* Presenter Notes - only visible on mobile when not in PresenterView component (which handles it separately)
+                  Note: The actual PresenterView component is used for mobile/presenter mode, but if we want it here too: */}
+              {isMobile && slide.presenterContent && (
+                 <div className="mt-6 pt-4 border-t border-slate-300">
+                   <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Presenter Notes</p>
+                   <p className="text-sm text-slate-600 italic">{slide.presenterContent}</p>
+                 </div>
+              )}
             </div>
+
+            {/* Zoom Overlay */}
+            {isZoomed && zoomedImageSrc && (
+              <div 
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 cursor-zoom-out p-4"
+                onClick={() => setIsZoomed(false)}
+              >
+                <img 
+                  src={zoomedImageSrc} 
+                  alt="Zoomed view" 
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-in fade-in zoom-in duration-300"
+                />
+              </div>
+            )}
           </>
         )}
 
@@ -235,5 +301,5 @@ export default function App() {
     return <PresenterView currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />;
   }
 
-  return <PresentationView currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />;
+  return <PresentationView currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} isMobile={isMobile} />;
 }
