@@ -240,7 +240,7 @@ export const slides = [
     title: "Thank You",
     subtitle: "Questions?",
     content: "",
-    presenterContent: "Thank everyone. Open floor for questions.",
+    presenterContent: "Start talking about my personal project and that's how I built this presentation and connected with mobile to show you in about 40 min. Leverage AI. Thank you. Floor open for questions",
     isThankYou: true,
     icon: Trophy,
     color: "bg-slate-100"
