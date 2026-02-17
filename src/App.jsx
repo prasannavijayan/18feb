@@ -160,26 +160,30 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
         </div>
       </div>
 
-      {/* Connect mobile prompt */}
-      <div className="mt-4 p-4 rounded-xl bg-slate-800/80 border border-slate-700 max-w-md">
-        <div className="flex items-center gap-2 text-slate-300 text-sm mb-2">
-          <Smartphone className="w-4 h-4 text-emerald-400" />
-          <span className="font-medium">Connect mobile as presenter</span>
-        </div>
-        <p className="text-slate-400 text-xs mb-2">
-          Open this URL on your phone to control slides:
-        </p>
-        <code className="block p-2 bg-slate-900 rounded text-emerald-400 text-xs break-all">
-          {window.location.href}
-        </code>
-      </div>
+      {/* Connect mobile prompt - hidden in fullscreen */}
+      {!isFullscreen && (
+        <>
+          <div className="mt-4 p-4 rounded-xl bg-slate-800/80 border border-slate-700 max-w-md">
+            <div className="flex items-center gap-2 text-slate-300 text-sm mb-2">
+              <Smartphone className="w-4 h-4 text-emerald-400" />
+              <span className="font-medium">Connect mobile as presenter</span>
+            </div>
+            <p className="text-slate-400 text-xs mb-2">
+              Open this URL on your phone to control slides:
+            </p>
+            <code className="block p-2 bg-slate-900 rounded text-emerald-400 text-xs break-all">
+              {window.location.href}
+            </code>
+          </div>
 
-      <p className="text-slate-400 mt-4 sm:mt-6 text-[clamp(0.75rem,1.5vw,0.875rem)] flex items-center justify-center flex-wrap gap-2">
-        <kbd className="px-2 py-1 bg-slate-800 rounded text-xs">← →</kbd>
-        <span>navigate</span>
-        <kbd className="px-2 py-1 bg-slate-800 rounded text-xs">F</kbd>
-        <span>fullscreen</span>
-      </p>
+          <p className="text-slate-400 mt-4 sm:mt-6 text-[clamp(0.75rem,1.5vw,0.875rem)] flex items-center justify-center flex-wrap gap-2">
+            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs">← →</kbd>
+            <span>navigate</span>
+            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs">F</kbd>
+            <span>fullscreen</span>
+          </p>
+        </>
+      )}
     </div>
   );
 }
