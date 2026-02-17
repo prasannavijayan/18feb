@@ -17,6 +17,16 @@ Then open [http://localhost:5173](http://localhost:5173) in your browser.
 - `pnpm build` - Build for production
 - `pnpm preview` - Preview production build locally
 
+## Mobile ↔ Desktop Sync
+
+To sync slides between the mobile presenter view and desktop presentation, add Supabase:
+
+1. Create a free project at [supabase.com](https://supabase.com)
+2. Copy `.env.example` to `.env` and add your Project URL and anon key
+3. For Netlify: add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in Site settings → Environment variables
+
+Without Supabase, sync works only for same-device (e.g. two browser tabs).
+
 ---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

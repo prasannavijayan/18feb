@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { supabase } from './supabase';
 
 const CHANNEL_NAME = 'presentation-slide-sync';
 const STORAGE_KEY = 'presentation-current-slide';
@@ -18,6 +19,7 @@ function getRoomId() {
 export function useSlideSync(totalSlides, initialSlide = 0) {
   const roomId = getRoomId();
   const storageKey = `${STORAGE_KEY}-${roomId}`;
+  const channelRef = useRef(null);
 
   const [currentSlide, setCurrentSlideState] = useState(() => {
     try {
@@ -32,20 +34,39 @@ export function useSlideSync(totalSlides, initialSlide = 0) {
     return initialSlide;
   });
 
-  const setCurrentSlide = useCallback((updater) => {
-    setCurrentSlideState((prev) => {
-      const next = typeof updater === 'function' ? updater(prev) : updater;
-      const slide = Math.max(0, Math.min(totalSlides - 1, next));
-      try {
-        sessionStorage.setItem(storageKey, String(slide));
-        const channel = new BroadcastChannel(CHANNEL_NAME);
-        channel.postMessage({ roomId, slide });
-        channel.close();
-      } catch (_) {}
-      return slide;
-    });
-  }, [totalSlides, storageKey]);
+  const setCurrentSlide = useCallback(
+    (updater) => {
+      setCurrentSlideState((prev) => {
+        const next = typeof updater === 'function' ? updater(prev) : updater;
+        const slide = Math.max(0, Math.min(totalSlides - 1, next));
 
+        try {
+          sessionStorage.setItem(storageKey, String(slide));
+        } catch (_) {}
+
+        // BroadcastChannel: same-device sync (e.g. two tabs)
+        try {
+          const bc = new BroadcastChannel(CHANNEL_NAME);
+          bc.postMessage({ roomId, slide });
+          bc.close();
+        } catch (_) {}
+
+        // Supabase: cross-device sync (mobile ↔ desktop)
+        if (supabase && channelRef.current) {
+          channelRef.current.send({
+            type: 'broadcast',
+            event: 'slide',
+            payload: { roomId, slide },
+          });
+        }
+
+        return slide;
+      });
+    },
+    [totalSlides, storageKey, roomId]
+  );
+
+  // BroadcastChannel listener (same device)
   useEffect(() => {
     const channel = new BroadcastChannel(CHANNEL_NAME);
     channel.onmessage = (e) => {
@@ -61,6 +82,7 @@ export function useSlideSync(totalSlides, initialSlide = 0) {
     return () => channel.close();
   }, [roomId, totalSlides]);
 
+  // Storage listener (same device, different tabs)
   useEffect(() => {
     const handleStorage = (e) => {
       if (e.key === storageKey && e.newValue !== null) {
@@ -73,6 +95,42 @@ export function useSlideSync(totalSlides, initialSlide = 0) {
     window.addEventListener('storage', handleStorage);
     return () => window.removeEventListener('storage', handleStorage);
   }, [storageKey, totalSlides]);
+
+  // Supabase Realtime: cross-device sync
+  useEffect(() => {
+    if (!supabase) return;
+
+    const channelName = `presentation:${roomId}`;
+    const channel = supabase.channel(channelName, {
+      config: { broadcast: { self: false } }, // Don't echo back to sender
+    });
+
+    channel
+      .on('broadcast', { event: 'slide' }, (payload) => {
+        const { roomId: msgRoomId, slide } = payload.payload || {};
+        if (msgRoomId === roomId && typeof slide === 'number') {
+          setCurrentSlideState((prev) => {
+            if (prev !== slide) {
+              try {
+                sessionStorage.setItem(storageKey, String(slide));
+              } catch (_) {}
+              return Math.max(0, Math.min(totalSlides - 1, slide));
+            }
+            return prev;
+          });
+        }
+      })
+      .subscribe((status) => {
+        if (status === 'SUBSCRIBED') {
+          channelRef.current = channel;
+        }
+      });
+
+    return () => {
+      channelRef.current = null;
+      supabase.removeChannel(channel);
+    };
+  }, [roomId, totalSlides, storageKey]);
 
   return { currentSlide, setCurrentSlide, roomId };
 }
