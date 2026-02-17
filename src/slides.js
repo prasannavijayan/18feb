@@ -15,6 +15,7 @@ import {
   Users,
   MessageSquare,
 } from 'lucide-react';
+import aiBeforeAfter from './assets/aibeforeafter.png';
 
 export const slides = [
   {
@@ -36,7 +37,7 @@ export const slides = [
   {
     title: 'Software development cycle',
     subtitle: '',
-    content: '<div class="flex justify-center"><img width="640px" id="zoomin" src="/src/assets/aibeforeafter.png" alt="Traditional software development cycle" /></div>',
+    content: `<div class="flex justify-center"><img width="640px" id="zoomin" src="${aiBeforeAfter}" alt="Traditional software development cycle" /></div>`,
     presenterContent: "Explain the traditional SDLC vs AI-assisted. Point out the 'zoomin' feature on the image.",
     icon: MonitorCloud,
     color: 'bg-teal-100'
