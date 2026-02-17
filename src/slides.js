@@ -16,6 +16,13 @@ import {
 
 export const slides = [
   {
+    title: "Leverage AI Tools to explore IT opportunities",
+    subtitle: "By Prasanna Vijayan",
+    content: "Software Engineer (FE) @ Freshworks",
+    icon: Users,
+    color: "bg-pink-50"
+  },
+  {
     title: "AI & The Future of IT Careers",
     subtitle: "From AI User to AI Orchestrator",
     content: "A strategic framework for 2nd and 3rd-year students in IT and AI & Data Science to navigate the 2026 job market.",
