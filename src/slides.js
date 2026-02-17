@@ -6,7 +6,6 @@ import {
   Zap,
   ShieldCheck,
   Code2,
-  Globe,
   GraduationCap,
   Trophy,
   BrainCircuit,
@@ -14,6 +13,7 @@ import {
   Search,
   Users,
   MessageSquare,
+  Clock10,
 } from 'lucide-react';
 import aiBeforeAfter from './assets/aibeforeafter.png';
 
@@ -22,7 +22,11 @@ export const slides = [
     title: "Leverage AI Tools to explore IT opportunities",
     subtitle: "By Prasanna Vijayan",
     content: "Software Engineer (Frontend) @ Freshworks <br><br> 10+ Years Experience in app development",
-    presenterContent: "Introduce yourself, mention 10+ years experience, and current role at Freshworks.",
+    presenterContent: `<ol>
+      <li>Introduce yourself, how you started your career as a frontend developer at various companies and how you are in freshworks now.</li>
+      <li>Talk on the benefits of using AI Tools for todays talk and how you did personal project ssh key things which used to take hours and now takes minutes</li>
+      <li>Explain SSH key completely and stop right there with personal project</li>
+      </ol>`,
     icon: Users,
     color: "bg-pink-50"
   },
@@ -30,15 +34,19 @@ export const slides = [
     title: "What do you think this session is about?",
     subtitle: 'Take a guess, hint: All answers might be correct',
     content: '',
-    presenterContent: "Engage the audience. Ask them to guess the topic. Mention that all answers might be correct in some context.",
+    presenterContent: `<ol>
+      <li>Ask them to guess what is it about and why you are giving this talk</li>
+      </ol>`,
     icon: CircleQuestionMark,
     color: "bg-white"
   },
   {
-    title: 'Software development cycle',
+    title: 'Traditional vs AI-assisted s/w development cycle',
     subtitle: '',
     content: `<div class="flex justify-center"><img width="640px" id="zoomin" src="${aiBeforeAfter}" alt="Traditional software development cycle" /></div>`,
-    presenterContent: "Explain the traditional SDLC vs AI-assisted. Point out the 'zoomin' feature on the image.",
+    presenterContent: `<ol>
+      <li>Blacksmith story on how sword / knife reference with same with 3D printing</li>
+    </ol>`,
     icon: MonitorCloud,
     color: 'bg-teal-100'
   },
@@ -53,7 +61,7 @@ export const slides = [
   {
     title: 'The AI Way: Coding with a Co-Pilot',
     subtitle: "In AI-assisted development, you're like a conductor.",
-    content: "<b>The Process:</b> ou describe what you want in plain English (e.g., 'Make a button that turns blue when clicked'). The AI generates the code for you instantly.<br><br><b>The Stuggle:</b> Instead of writing every line, the developer becomes an editor. You review the AI's work, tweak it, and connect the big pieces together.<br><br><b>The Vibe:</b> Fast, creative, and focused on the 'Big Picture' rather than the tiny details.",
+    content: "<b>The Process:</b> Describe what you want in plain English (e.g., 'Make a button that turns blue when clicked'). The AI generates the code for you instantly.<br><br><b>The Stuggle:</b> Instead of writing every line, the developer becomes an editor. You review the AI's work, tweak it, and connect the big pieces together.<br><br><b>The Vibe:</b> Fast, creative, and focused on the 'Big Picture' rather than the tiny details.",
     presenterContent: "...",
     icon: Cpu,
     color: "bg-blue-50"
@@ -63,7 +71,7 @@ export const slides = [
     subtitle: "The Shift from Chat to Action",
     content: "We have moved beyond simple chatbots to Agentic AI—systems capable of executing multi-step workflows autonomously. By 2026, 37% of routine roles will be automated, but 'Orchestrator' roles are exploding.",
     list: ["Multi-Agent Systems", "Enterprise Integration", "Autonomous Workflow Execution"],
-    presenterContent: "Orchestrator roles in AI-based development manage, coordinate, and supervise multiple AI agents, models, and workflows to ensure seamless, scalable, and secure application development. They function as central controllers—bridging reasoning engines, memory systems, and tool execution—to translate high-level intent into technical actions, reducing, or 'de-siloing', complex workflows. ",
+    presenterContent: "Ready player one movie reference. One Clear goal - iRobot",
     icon: Zap,
     color: "bg-yellow-50"
   },
@@ -72,12 +80,12 @@ export const slides = [
     subtitle: "Why Human-AI Collaboration Pays",
     content: "Professionals who combine technical fluency with human-centered skills (creativity, ethics) earn a 28% salary premium. Skills for AI-exposed roles are evolving 66% faster than traditional roles.",
     list: ["Critical Thinking", "Ethical Reasoning", "Strategic Orchestration"],
-    presenterContent: "Discuss the salary premium. Why human skills matter more when AI does the coding.",
+    presenterContent: "Discuss the salary premium. Why human skills matter more when AI does the coding. Tell them story about closed evironment AI studies",
     icon: Trophy,
     color: "bg-purple-50"
   },
   {
-    title: "Local Focus: The Chennai Hub",
+    title: "Community Focus: The Chennai Hub",
     subtitle: "SaaS, AI & Product Engineering",
     content: "Chennai is a magnet for 'Applied AI'. Key players like Zoho and Freshworks integrate AI directly into global products.",
     list: ["OMR/Taramani: Computer Vision & SaaS", "Guduvanchery: Business Productivity (Zoho)", "Entry-level salaries: ₹6L - ₹12L for AI Specialists"],
@@ -129,6 +137,14 @@ export const slides = [
     presenterContent: "Mention Windsurf and Cascade. Compare with Cursor. Mention Replit for browser-based dev.",
     icon: Code2,
     color: "bg-cyan-50"
+  },
+  {
+    title: "Short Break",
+    subtitle: "",
+    content: "<b>10 minutes</b>, once you're back, we will continue with the session on editing your resume and portfolio",
+    presenterContent: "",
+    icon: Clock10,
+    color: "bg-gray-50"
   },
   {
     title: "Algorithmic Job Matching",

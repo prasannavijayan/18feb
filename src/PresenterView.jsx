@@ -50,7 +50,7 @@ export function PresenterView({ currentSlide, setCurrentSlide }) {
             {slide.presenterContent && (
               <div className="mt-4 pt-4 border-t border-slate-400/30 flex-shrink-0">
                 <p className="text-slate-900 text-xs font-semibold uppercase tracking-wider mb-2">Presenter Notes:</p>
-                <p className="text-slate-800 text-sm sm:text-base italic leading-relaxed">{slide.presenterContent}</p>
+                <p className="text-slate-800 text-sm sm:text-base italic leading-relaxed" dangerouslySetInnerHTML={{ __html: slide.presenterContent }} />
               </div>
             )}
           </div>
