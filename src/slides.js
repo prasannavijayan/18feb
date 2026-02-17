@@ -45,8 +45,16 @@ export const slides = [
   {
     title: "The Traditional Way: Hand-Coding Every Step",
     subtitle: "In traditional development, a programmer is like a translator.",
-    content: "Until now, AI just answered questions. In 2026, AI acts on your behalf. It can build whole apps, manage servers, and solve bugs while you sleep. Your new job? Being the 'Boss' of these AI",
-    presenterContent: "Emphasize the shift from 'User' to 'Boss'. AI is no longer just a tool, it's an agent.",
+    content: "<b>The Process:</b> You write every line of code. If you miss a single semicolon (;), the whole thing breaks.<br><br><b>The Stuggle:</b> If you run into a problem, you spend hours digging through manuals or forums (like Stack Overflow) to find out why your 'brick' doesn't fit.<br><br><b>The Vibe:</b> Slow, meticulous, and requires a massive amount of memorization.",
+    presenterContent: "...",
+    icon: Cpu,
+    color: "bg-blue-50"
+  },
+  {
+    title: 'The AI Way: Coding with a Co-Pilot',
+    subtitle: "In AI-assisted development, you're like a conductor.",
+    content: "<b>The Process:</b> ou describe what you want in plain English (e.g., 'Make a button that turns blue when clicked'). The AI generates the code for you instantly.<br><br><b>The Stuggle:</b> Instead of writing every line, the developer becomes an editor. You review the AI's work, tweak it, and connect the big pieces together.<br><br><b>The Vibe:</b> Fast, creative, and focused on the 'Big Picture' rather than the tiny details.",
+    presenterContent: "...",
     icon: Cpu,
     color: "bg-blue-50"
   },
@@ -55,7 +63,7 @@ export const slides = [
     subtitle: "The Shift from Chat to Action",
     content: "We have moved beyond simple chatbots to Agentic AI—systems capable of executing multi-step workflows autonomously. By 2026, 37% of routine roles will be automated, but 'Orchestrator' roles are exploding.",
     list: ["Multi-Agent Systems", "Enterprise Integration", "Autonomous Workflow Execution"],
-    presenterContent: "Define Agentic AI. Give examples of autonomous workflows. Mention the 2026 prediction.",
+    presenterContent: "Orchestrator roles in AI-based development manage, coordinate, and supervise multiple AI agents, models, and workflows to ensure seamless, scalable, and secure application development. They function as central controllers—bridging reasoning engines, memory systems, and tool execution—to translate high-level intent into technical actions, reducing, or 'de-siloing', complex workflows. ",
     icon: Zap,
     color: "bg-yellow-50"
   },
@@ -67,15 +75,6 @@ export const slides = [
     presenterContent: "Discuss the salary premium. Why human skills matter more when AI does the coding.",
     icon: Trophy,
     color: "bg-purple-50"
-  },
-  {
-    title: "India: The Deep-Tech Hub",
-    subtitle: "Rise of Global Capability Centers (GCCs)",
-    content: "India's tech industry is hitting $300B. GCCs have moved from back-offices to R&D hubs for global products, cybersecurity, and AI research.",
-    list: ["9.5M tech professionals by 2026", "$17B Indian AI Economy by 2027", "Massive gap in GenAI-ready talent"],
-    presenterContent: "Highlight India's growth. GCCs are key employers. The gap in GenAI talent is an opportunity.",
-    icon: Globe,
-    color: "bg-green-50"
   },
   {
     title: "Local Focus: The Chennai Hub",
@@ -91,7 +90,7 @@ export const slides = [
     subtitle: "A Creative Learning Mechanism",
     content: "Don't just code from scratch. Take a finished AI output (code or architecture) and deconstruct it to reveal its 'DNA'. Analyze the trajectory from idea to artifact.",
     list: ["Identify design patterns", "Study structural relationships", "Understand architectural tradeoffs"],
-    presenterContent: "Explain Reverse Thinking. Start with the output and work backwards. Good for learning AI architectures.",
+    presenterContent: "Reverse Thinking is a creative learning mechanism that helps you understand how AI works. It's a great way to learn AI architectures.",
     icon: BrainCircuit,
     color: "bg-indigo-50"
   },
@@ -109,7 +108,7 @@ export const slides = [
     subtitle: "High-Yield Learning Techniques",
     content: "Leverage proven educational frameworks using AI personas to accelerate comprehension of complex IT topics.",
     list: ["Feynman Technique: Explain like I'm 12", "Pareto (80/20): Identify high-yield topics", "Peer Debate: Use AI as a skeptic to toughen logic"],
-    presenterContent: "Briefly explain Feynman, Pareto, and Peer Debate techniques using AI.",
+    presenterContent: "Pedagogical means கற்பித்தல் ",
     icon: GraduationCap,
     color: "bg-blue-50"
   },
@@ -163,7 +162,7 @@ export const slides = [
     subtitle: "Real-World Utility > Flashy AI",
     content: "Hiring managers want to see 'Human-in-the-Loop' systems and 'Explainable AI'. Show that you can solve real problems with intelligent tools.",
     list: ["RAG-based Document Assistants", "Explainable Coding Tutors", "Privacy-First Local AI Solutions"],
-    presenterContent: "Portfolio strategy: Build real things. RAG, Explainable AI, Privacy-first.",
+    presenterContent: "RAG: If you ask them about something that happened yesterday, they won't know it because it wasn't in their textbook back then. They might even guess and give you a wrong answer because they want to be helpful. | When you ask a question, the student doesn't just answer from memory. First, they sprint to the library, grab the newest, most relevant book on that topic, read the specific page, and then answer your question.",
     icon: Trophy,
     color: "bg-amber-50"
   },
