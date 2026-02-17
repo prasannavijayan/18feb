@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Smartphone, RotateCcw } from 'lucide-react';
 import { slides } from './slides';
 
 export function PresenterView({ currentSlide, setCurrentSlide }) {
@@ -8,11 +8,15 @@ export function PresenterView({ currentSlide, setCurrentSlide }) {
   const Icon = slide?.icon;
 
   const goNext = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? prev : prev + 1));
   };
 
   const goPrev = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const restartDeck = () => {
+    setCurrentSlide(0);
   };
 
   return (
@@ -59,8 +63,9 @@ export function PresenterView({ currentSlide, setCurrentSlide }) {
               <p className="text-slate-600 text-xs mt-1 line-clamp-2">{nextSlide.subtitle}</p>
             </div>
           ) : (
-            <div className="rounded-xl p-4 border-2 border-dashed border-slate-600 bg-slate-800/50 min-h-[180px] flex items-center justify-center">
+            <div className="rounded-xl p-4 border-2 border-dashed border-slate-600 bg-slate-800/50 min-h-[180px] flex flex-col items-center justify-center gap-2">
               <span className="text-slate-500 text-sm">End of deck</span>
+              <span className="text-slate-600 text-xs">Use Restart to begin again</span>
             </div>
           )}
         </section>
@@ -100,12 +105,22 @@ export function PresenterView({ currentSlide, setCurrentSlide }) {
           <span className="text-slate-400 text-sm font-medium min-w-[4rem] text-center">
             {currentSlide + 1} / {slides.length}
           </span>
-          <button
-            onClick={goNext}
-            className="p-4 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all active:scale-95"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+          {slide?.isThankYou ? (
+            <button
+              onClick={restartDeck}
+              className="p-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white transition-all active:scale-95"
+              title="Restart"
+            >
+              <RotateCcw className="w-6 h-6" />
+            </button>
+          ) : (
+            <button
+              onClick={goNext}
+              className="p-4 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all active:scale-95"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          )}
         </div>
       </footer>
     </div>

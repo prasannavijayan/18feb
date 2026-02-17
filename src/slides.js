@@ -180,5 +180,13 @@ export const slides = [
     list: ["Master Agentic IDEs", "Think Socratically", "Prioritize Ethical Implementation"],
     icon: Trophy,
     color: "bg-yellow-50"
+  },
+  {
+    title: "Thank You",
+    subtitle: "Questions?",
+    content: "",
+    isThankYou: true,
+    icon: Trophy,
+    color: "bg-slate-100"
   }
 ];

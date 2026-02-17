@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Smartphone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Smartphone, RotateCcw } from 'lucide-react';
 import { slides } from './slides';
 import { PresenterView } from './PresenterView';
 import { useSlideSync } from './useSlideSync';
@@ -47,17 +47,22 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? prev : prev + 1));
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
+  const restartDeck = () => {
+    setCurrentSlide(0);
+  };
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
+        if (currentSlide === slides.length - 1 && slide?.isThankYou) return;
         nextSlide();
       }
       if (e.key === 'ArrowLeft') prevSlide();
@@ -70,7 +75,7 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleFullscreen]);
+  }, [toggleFullscreen, currentSlide, slide?.isThankYou]);
 
   return (
     <div
@@ -87,42 +92,64 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
           padding: 'clamp(1rem, 3vw, 3rem)'
         }}
       >
-        <div className="absolute top-0 right-0 w-[min(12rem,30vw)] h-[min(12rem,30vw)] opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4 [&>svg]:w-full [&>svg]:h-full">
-          <Icon className="w-full h-full text-slate-600" />
-        </div>
-
-        <div className="flex items-start justify-between flex-shrink-0" style={{ marginBottom: 'clamp(1rem, 3vh, 2rem)' }}>
-          <div className="min-w-0 flex-1">
-            <span className="text-[clamp(0.65rem,1.5vw,0.75rem)] font-bold tracking-widest text-slate-500 uppercase mb-1 block">
-              Slide {currentSlide + 1} / {slides.length}
-            </span>
-            <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-black text-slate-900 leading-tight">
-              {slide.title}
-            </h1>
-            <h2 className="text-[clamp(1rem,2.5vw,1.5rem)] font-semibold text-slate-600 mt-1 sm:mt-2">
-              {slide.subtitle}
-            </h2>
-          </div>
-          <div className="hidden sm:block flex-shrink-0 ml-4 [&>svg]:w-full [&>svg]:h-full" style={{ width: 'clamp(2.5rem, 6vw, 4rem)', height: 'clamp(2.5rem, 6vw, 4rem)' }}>
+        {!slide.isThankYou && (
+          <div className="absolute top-0 right-0 w-[min(12rem,30vw)] h-[min(12rem,30vw)] opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4 [&>svg]:w-full [&>svg]:h-full">
             <Icon className="w-full h-full text-slate-600" />
           </div>
-        </div>
+        )}
 
-        <div className="flex-1 min-h-0 overflow-auto">
-          <p className="text-[clamp(0.9rem,2vw,1.25rem)] text-slate-700 leading-relaxed mb-4 sm:mb-6">
-            {slide.content}
-          </p>
-          {slide.list && (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
-              {slide.list.map((item, i) => (
-                <li key={i} className="flex items-center space-x-3 bg-white/50 p-2 sm:p-3 rounded-lg border border-slate-200">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-slate-400 flex-shrink-0" />
-                  <span className="text-slate-800 font-medium text-[clamp(0.8rem,1.5vw,1rem)]">{item}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        {slide.isThankYou ? (
+          <div className="flex-1 flex flex-col items-center justify-center text-center">
+            <h1 className="text-[clamp(2rem,6vw,4rem)] font-black text-slate-900">
+              Thank You
+            </h1>
+            <h2 className="text-[clamp(1.25rem,3vw,2rem)] font-semibold text-slate-600 mt-4">
+              Questions?
+            </h2>
+            <button
+              onClick={restartDeck}
+              className="mt-8 flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold transition-all shadow-lg"
+            >
+              <RotateCcw className="w-5 h-5" />
+              Restart Presentation
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-start justify-between flex-shrink-0" style={{ marginBottom: 'clamp(1rem, 3vh, 2rem)' }}>
+              <div className="min-w-0 flex-1">
+                <span className="text-[clamp(0.65rem,1.5vw,0.75rem)] font-bold tracking-widest text-slate-500 uppercase mb-1 block">
+                  Slide {currentSlide + 1} / {slides.length}
+                </span>
+                <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-black text-slate-900 leading-tight">
+                  {slide.title}
+                </h1>
+                <h2 className="text-[clamp(1rem,2.5vw,1.5rem)] font-semibold text-slate-600 mt-1 sm:mt-2">
+                  {slide.subtitle}
+                </h2>
+              </div>
+              <div className="hidden sm:block flex-shrink-0 ml-4 [&>svg]:w-full [&>svg]:h-full" style={{ width: 'clamp(2.5rem, 6vw, 4rem)', height: 'clamp(2.5rem, 6vw, 4rem)' }}>
+                <Icon className="w-full h-full text-slate-600" />
+              </div>
+            </div>
+
+            <div className="flex-1 min-h-0 overflow-auto">
+              <p className="text-[clamp(0.9rem,2vw,1.25rem)] text-slate-700 leading-relaxed mb-4 sm:mb-6">
+                {slide.content}
+              </p>
+              {slide.list && (
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
+                  {slide.list.map((item, i) => (
+                    <li key={i} className="flex items-center space-x-3 bg-white/50 p-2 sm:p-3 rounded-lg border border-slate-200">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-slate-400 flex-shrink-0" />
+                      <span className="text-slate-800 font-medium text-[clamp(0.8rem,1.5vw,1rem)]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </>
+        )}
 
         <div className="flex items-center justify-between flex-shrink-0 gap-2 sm:gap-4" style={{ marginTop: 'clamp(1rem, 3vh, 2rem)' }}>
           <div className="flex space-x-2 flex-shrink-0">
@@ -132,12 +159,22 @@ function PresentationView({ currentSlide, setCurrentSlide }) {
             >
               <ChevronLeft />
             </button>
-            <button
-              onClick={nextSlide}
-              className="p-2 sm:p-3 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-800 shadow-sm transition-all [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6"
-            >
-              <ChevronRight />
-            </button>
+            {slide?.isThankYou ? (
+              <button
+                onClick={restartDeck}
+                className="p-2 sm:p-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm transition-all flex items-center gap-1"
+                title="Restart from beginning"
+              >
+                <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+            ) : (
+              <button
+                onClick={nextSlide}
+                className="p-2 sm:p-3 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-800 shadow-sm transition-all [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6"
+              >
+                <ChevronRight />
+              </button>
+            )}
             <button
               onClick={toggleFullscreen}
               className="p-2 sm:p-3 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-800 shadow-sm transition-all [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6"
