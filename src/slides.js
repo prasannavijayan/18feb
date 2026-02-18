@@ -16,6 +16,7 @@ import {
   Clock10,
 } from 'lucide-react';
 import aiBeforeAfter from './assets/aibeforeafter.png';
+import aiBuzzWords from './assets/aibuzzwords.png';
 
 export const slides = [
   {
@@ -25,7 +26,6 @@ export const slides = [
     presenterContent: `<ol>
       <li>Introduce yourself, how you started your career as a frontend developer at various companies and how you are in freshworks now.</li>
       <li>Talk on the benefits of using AI Tools for todays talk and how you did personal project ssh key things which used to take hours and now takes minutes</li>
-      <li>Explain SSH key completely and stop right there with personal project</li>
       </ol>`,
     icon: Users,
     color: "bg-pink-50"
@@ -33,9 +33,10 @@ export const slides = [
   {
     title: "What do you think this session is about?",
     subtitle: 'Take a guess, hint: All answers might be correct',
-    content: '',
+    content: `<div class="flex justify-center"><img width="540px" id="zoomin" src="${aiBuzzWords}" alt="Traditional software development cycle" class="max-w-full max-h-[60vh] object-contain" /></div>`,
     presenterContent: `<ol>
       <li>Ask them to guess what is it about and why you are giving this talk</li>
+      <li>Talk about the buzzwords in the industry and being a pessimistic and optimistic about the future of AI</li>
       </ol>`,
     icon: CircleQuestionMark,
     color: "bg-white"
@@ -43,9 +44,10 @@ export const slides = [
   {
     title: 'Traditional vs AI-assisted s/w development cycle',
     subtitle: '',
-    content: `<div class="flex justify-center"><img width="640px" id="zoomin" src="${aiBeforeAfter}" alt="Traditional software development cycle" /></div>`,
+    content: `<div class="flex justify-center h-full items-center"><img id="zoomin" src="${aiBeforeAfter}" alt="Traditional software development cycle" class="max-w-full max-h-[60vh] object-contain" /></div>`,
     presenterContent: `<ol>
       <li>Blacksmith story on how sword / knife reference with same with 3D printing</li>
+      <li>Explain SSH key completely and stop right there with personal project</li>
     </ol>`,
     icon: MonitorCloud,
     color: 'bg-teal-100'
@@ -85,7 +87,7 @@ export const slides = [
     color: "bg-purple-50"
   },
   {
-    title: "Community Focus: The Chennai Hub",
+    title: "Community Focus: The Chennai Hub, Madurai Hub",
     subtitle: "SaaS, AI & Product Engineering",
     content: "Chennai is a magnet for 'Applied AI'. Key players like Zoho and Freshworks integrate AI directly into global products.",
     list: ["OMR/Taramani: Computer Vision & SaaS", "Guduvanchery: Business Productivity (Zoho)", "Entry-level salaries: ₹6L - ₹12L for AI Specialists"],
@@ -151,7 +153,7 @@ export const slides = [
     subtitle: "Beyond the Job Board",
     content: "In 2026, AI matches you based on personality assessments and 'biography' analysis. Use platforms that surface your profile to relevant recruiters.",
     list: ["Talentprise: Value-based matching", "LinkedIn Premium: AI Gap Analysis", "ResumeNerd: Bio-to-Role alignment"],
-    presenterContent: "Job matching is changing. It's not just keywords anymore, it's about 'biography' and 'value'.",
+    presenterContent: "Job matching is changing. It's not just keywords anymore, it's about 'biography' and 'value'. Talk about what you can do is not matters, what you did and improve from there.",
     icon: Briefcase,
     color: "bg-emerald-50"
   },

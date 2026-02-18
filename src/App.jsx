@@ -72,7 +72,10 @@ function PresentationView({ currentSlide, setCurrentSlide, isMobile }) {
         if (currentSlide === slides.length - 1 && slide?.isThankYou) return;
         nextSlide();
       }
-      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowLeft') {
+        if (currentSlide === 0) return;
+        prevSlide();
+      }
       if (e.key === 'f' || e.key === 'F') {
         if (!e.ctrlKey && !e.metaKey && !e.altKey) {
           e.preventDefault();
