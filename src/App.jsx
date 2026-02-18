@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Smartphone, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Smartphone, RotateCcw, Linkedin, Github } from 'lucide-react';
 import { slides } from './slides';
 import { PresenterView } from './PresenterView';
 import { useSlideSync } from './useSlideSync';
@@ -154,6 +154,30 @@ function PresentationView({ currentSlide, setCurrentSlide, isMobile }) {
             <h2 className="text-[clamp(1.25rem,3vw,2rem)] font-semibold text-slate-600 mt-4">
               Questions?
             </h2>
+            <div className="gap-6 mt-6">
+              <a
+                href="https://www.linkedin.com/in/prasannavijayan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-700 hover:text-[#0A66C2] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-8 h-8" />
+                <span className="text-sm font-medium">LinkedIn - linkedin.com/in/prasannavijayan</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="https://github.com/prasannavijayan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-700 hover:text-slate-900 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="w-8 h-8" />
+                <span className="text-sm font-medium">GitHub - github.com/prasannavijayan</span>
+              </a>
+            </div>
             <button
               onClick={restartDeck}
               className="mt-8 flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold transition-all shadow-lg"
