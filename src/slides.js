@@ -18,233 +18,261 @@ import {
 import aiBeforeAfter from './assets/aibeforeafter.png';
 import aiBuzzWords from './assets/aibuzzwords.png';
 
+/** Example deck only — fictional copy, no real people or organizations. */
 export const slides = [
   {
-    title: "Leverage AI Tools to explore IT opportunities",
-    subtitle: "By Prasanna Vijayan",
-    content: "Software Engineer (Frontend) @ Freshworks <br><br> 10+ Years Experience in app development",
+    title: 'Sample deck: Widget workflows',
+    subtitle: 'Demo presenter notes & layout',
+    content:
+      'This slide exists to show typography and spacing.<br><br>Replace every string with your own material before a real talk.',
     presenterContent: `<ol>
-      <li>Introduce yourself, how you started your career as a frontend developer at various companies and how you are in freshworks now.</li>
-      <li>Talk on the benefits of using AI Tools for todays talk and how you did personal project ssh key things which used to take hours and now takes minutes</li>
+      <li>Open with a one-line hook; avoid biographical detail in public demos.</li>
+      <li>Mention that this file is placeholder content for UI testing.</li>
       </ol>`,
     icon: Users,
-    color: "bg-pink-50"
+    color: 'bg-pink-50',
   },
   {
-    title: "What do you think this session is about?",
-    subtitle: 'Take a guess, hint: All answers might be correct',
-    content: `<div class="flex justify-center"><img width="540px" id="zoomin" src="${aiBuzzWords}" alt="Traditional software development cycle" class="max-w-full max-h-[60vh] object-contain" /></div>`,
+    title: 'What might this session cover?',
+    subtitle: 'Audience poll — answers can all be playful',
+    content: `<div class="flex justify-center"><img width="540px" id="zoomin" src="${aiBuzzWords}" alt="Decorative diagram placeholder" class="max-w-full max-h-[60vh] object-contain" /></div>`,
     presenterContent: `<ol>
-      <li>Ask them to guess what is it about and why you are giving this talk</li>
-      <li>Talk about the buzzwords in the industry and being a pessimistic and optimistic about the future of AI</li>
+      <li>Invite guesses; keep tone light.</li>
+      <li>Transition: buzzwords vs. concrete outcomes.</li>
       </ol>`,
     icon: CircleQuestionMark,
-    color: "bg-white"
+    color: 'bg-white',
   },
   {
-    title: 'Traditional vs AI-assisted s/w development cycle',
+    title: 'Before / after (illustrative)',
     subtitle: '',
-    content: `<div class="flex justify-center h-full items-center"><img id="zoomin" src="${aiBeforeAfter}" alt="Traditional software development cycle" class="max-w-full max-h-[60vh] object-contain" /></div>`,
+    content: `<div class="flex justify-center h-full items-center"><img id="zoomin" src="${aiBeforeAfter}" alt="Before and after comparison placeholder" class="max-w-full max-h-[60vh] object-contain" /></div>`,
     presenterContent: `<ol>
-      <li>Blacksmith story on how sword / knife reference with same with 3D printing</li>
-      <li>Explain SSH key completely and stop right there with personal project</li>
+      <li>Walk through the image at a high level only.</li>
+      <li>Pause for questions before the next section.</li>
     </ol>`,
     icon: MonitorCloud,
-    color: 'bg-teal-100'
+    color: 'bg-teal-100',
   },
   {
-    title: "The Traditional Way: Hand-Coding Every Step",
-    subtitle: "In traditional development, a programmer is like a translator.",
-    content: "<b>The Process:</b> You write every line of code. If you miss a single semicolon (;), the whole thing breaks.<br><br><b>The Stuggle:</b> If you run into a problem, you spend hours digging through manuals or forums (like Stack Overflow) to find out why your 'brick' doesn't fit.<br><br><b>The Vibe:</b> Slow, meticulous, and requires a massive amount of memorization.",
-    presenterContent: "...",
+    title: 'Lorem process alpha',
+    subtitle: 'Hand-written steps, one typo on purpose',
+    content:
+      "<b>Process:</b> Jumbled latin filler — arcu dictum, integer vel, nullam quis.<br><br><b>Friction:</b> Semicolons vanish; builds fail; forums echo with duplicate threads.<br><br><b>Mood:</b> Deliberate, slow, and heavy on memorization for this fake example.",
+    presenterContent: 'Emphasize contrast with the next slide.',
     icon: Cpu,
-    color: "bg-blue-50"
+    color: 'bg-blue-50',
   },
   {
-    title: 'The AI Way: Coding with a Co-Pilot',
-    subtitle: "In AI-assisted development, you're like a conductor.",
-    content: "<b>The Process:</b> Describe what you want in plain English (e.g., 'Make a button that turns blue when clicked'). The AI generates the code for you instantly.<br><br><b>The Stuggle:</b> Instead of writing every line, the developer becomes an editor. You review the AI's work, tweak it, and connect the big pieces together.<br><br><b>The Vibe:</b> Fast, creative, and focused on the 'Big Picture' rather than the tiny details.",
-    presenterContent: "...",
+    title: 'Lorem process beta',
+    subtitle: 'Plain-language prompts as a toy story',
+    content:
+      "<b>Process:</b> Describe a blue button in plain English; pretend output appears instantly.<br><br><b>Friction:</b> Editing beats authoring; stitch fragments into a whole.<br><br><b>Mood:</b> Fast, playful, big-picture framing for the deck preview.",
+    presenterContent: 'Mirror structure of previous slide for layout check.',
     icon: Cpu,
-    color: "bg-blue-50"
+    color: 'bg-blue-50',
   },
   {
-    title: "The Agentic Leap (2026)",
-    subtitle: "The Shift from Chat to Action",
-    content: "We have moved beyond simple chatbots to Agentic AI—systems capable of executing multi-step workflows autonomously. By 2026, 37% of routine roles will be automated, but 'Orchestrator' roles are exploding.",
-    list: ["Multi-Agent Systems", "Enterprise Integration", "Autonomous Workflow Execution"],
-    presenterContent: "Ready player one movie reference. One Clear goal - iRobot",
+    title: 'Fictional roadmap year',
+    subtitle: 'Chat-shaped tools vs. action-shaped tools',
+    content:
+      'Nonsense stat: 37% of routine tasks become automated in this pretend timeline. Orchestrator-style roles grow in the same paragraph for symmetry.',
+    list: ['Multi-step automations', 'Sandbox integrations', 'Workflow sketches'],
+    presenterContent: 'Use a movie or book reference only if licensing fits your event.',
     icon: Zap,
-    color: "bg-yellow-50"
+    color: 'bg-yellow-50',
   },
   {
-    title: "The Hybrid Skill Premium",
-    subtitle: "Why Human-AI Collaboration Pays",
-    content: "Professionals who combine technical fluency with human-centered skills (creativity, ethics) earn a 28% salary premium. Skills for AI-exposed roles are evolving 66% faster than traditional roles.",
-    list: ["Critical Thinking", "Ethical Reasoning", "Strategic Orchestration"],
-    presenterContent: "Discuss the salary premium. Why human skills matter more when AI does the coding. Tell them story about closed evironment AI studies",
+    title: 'Hybrid skills (example only)',
+    subtitle: 'No real compensation data',
+    content:
+      'Placeholder claim: blending technical fluency with judgment yields better outcomes in our fake study. Skills change faster than footnotes in this demo.',
+    list: ['Critical thinking', 'Ethical reasoning', 'Prioritization'],
+    presenterContent: 'Keep discussion abstract; do not cite real surveys here.',
     icon: Trophy,
-    color: "bg-purple-50"
+    color: 'bg-purple-50',
   },
   {
-    title: "Community Focus: The Chennai Hub, Madurai Hub",
-    subtitle: "SaaS, AI & Product Engineering",
-    content: "Chennai is a magnet for 'Applied AI'. Key players like Zoho and Freshworks integrate AI directly into global products.",
-    list: ["OMR/Taramani: Computer Vision & SaaS", "Guduvanchery: Business Productivity (Zoho)", "Entry-level salaries: ₹6L - ₹12L for AI Specialists"],
-    presenterContent: "Focus on Chennai. Mention specific companies and salary ranges to make it real for students.",
+    title: 'Regional hub — fictional',
+    subtitle: 'Generic “tech corridor” wording',
+    content:
+      'Imagine a metro area where product teams ship experiments weekly. Names of streets and employers are omitted on purpose.',
+    list: [
+      'North district: vision labs (fictional)',
+      'South campus: productivity suites (fictional)',
+      'Entry bands: redacted in example decks',
+    ],
+    presenterContent: 'Swap in vetted, public facts for a real talk.',
     icon: Search,
-    color: "bg-orange-50"
+    color: 'bg-orange-50',
   },
   {
-    title: "Reverse Thinking Framework",
-    subtitle: "A Creative Learning Mechanism",
-    content: "Don't just code from scratch. Take a finished AI output (code or architecture) and deconstruct it to reveal its 'DNA'. Analyze the trajectory from idea to artifact.",
-    list: ["Identify design patterns", "Study structural relationships", "Understand architectural tradeoffs"],
-    presenterContent: "Reverse Thinking is a creative learning mechanism that helps you understand how AI works. It's a great way to learn AI architectures.",
+    title: 'Reverse-engineering practice',
+    subtitle: 'Learning from finished artifacts',
+    content:
+      'Start from a completed snippet and peel layers until patterns emerge. This slide is filler text for spacing tests.',
+    list: ['Spot recurring patterns', 'Map dependencies', 'Note tradeoffs'],
+    presenterContent: 'Demo one tiny code walk-through if time allows.',
     icon: BrainCircuit,
-    color: "bg-indigo-50"
+    color: 'bg-indigo-50',
   },
   {
-    title: "The Socratic AI Tutor",
-    subtitle: "Learning Architects, Not Answer Generators",
-    content: "Use LLMs (Claude/GPT) to guide discovery rather than provide answers. Socratic prompting turns interaction into a dialogue that surfaces hidden assumptions.",
-    list: ["Force the AI to ask YOU questions", "Validate logic step-by-step", "Build deep intuition over rote memory"],
-    presenterContent: "Socratic method: AI asks questions. This builds deeper understanding than just getting answers.",
+    title: 'Dialogue-first prompts',
+    subtitle: 'Questions before answers',
+    content:
+      'Use assistants to surface assumptions instead of dumping conclusions. All product names in your live deck should be yours to verify.',
+    list: ['Ask the model to interrogate you', 'Step through logic', 'Prefer intuition over cramming'],
+    presenterContent: 'Optional live prompt; keep transcripts off-screen.',
     icon: Users,
-    color: "bg-pink-50"
+    color: 'bg-pink-50',
   },
   {
-    title: "Pedagogical Power-Ups",
-    subtitle: "High-Yield Learning Techniques",
-    content: "Leverage proven educational frameworks using AI personas to accelerate comprehension of complex IT topics.",
-    list: ["Feynman Technique: Explain like I'm 12", "Pareto (80/20): Identify high-yield topics", "Peer Debate: Use AI as a skeptic to toughen logic"],
-    presenterContent: "Pedagogical means கற்பித்தல் ",
+    title: 'Study habits (placeholder)',
+    subtitle: 'Frameworks as mnemonics',
+    content:
+      'Explain-like-I’m-twelve, eighty-twenty focus, and debate-with-a-skeptic are listed here only to exercise bullet styling.',
+    list: ['Simple explanations', 'High-yield topics', 'Adversarial review'],
+    presenterContent: 'Translate jargon for the room if needed.',
     icon: GraduationCap,
-    color: "bg-blue-50"
+    color: 'bg-blue-50',
   },
   {
-    title: "Agentic IDEs: Cursor",
-    subtitle: "The Future of Coding Environments",
-    content: "Cursor is an AI-native IDE. Its 'Agent Mode' understands your entire codebase, plans changes, and executes them across multiple files.",
-    list: ["The Understanding Layer (Context)", "The Planning Layer (Proposal)", "The Execution Layer (Action)"],
-    presenterContent: "Introduce Cursor. Explain Agent Mode and how it understands context.",
+    title: 'Example IDE headline',
+    subtitle: 'Agent-style editing (generic)',
+    content:
+      'Any AI-aware editor can illustrate context, plans, and edits across files. Swap in the tool you actually use.',
+    list: ['Context layer', 'Plan layer', 'Apply layer'],
+    presenterContent: 'Screen-share a sandbox repo, not production.',
     icon: Terminal,
-    color: "bg-gray-100"
+    color: 'bg-gray-100',
   },
   {
-    title: "The Windsurf Revolution",
-    subtitle: "Cascade & Autonomous Flow",
-    content: "Windsurf's 'Cascade' logic automates 90% of code generation and debugging. It acts as an interactive partner for enterprise-grade projects.",
-    list: ["Multi-file editing", "Context-aware suggestions", "Instant browser-based app building (Replit)"],
-    presenterContent: "Mention Windsurf and Cascade. Compare with Cursor. Mention Replit for browser-based dev.",
+    title: 'Second tool slot',
+    subtitle: 'Cascade-style flows (fictional)',
+    content:
+      'Pretend automation covers most boilerplate while you steer architecture. Numbers are decorative.',
+    list: ['Multi-file touch', 'Inline suggestions', 'Browser labs'],
+    presenterContent: 'Compare two tools abstractly; avoid endorsement wars.',
     icon: Code2,
-    color: "bg-cyan-50"
+    color: 'bg-cyan-50',
   },
   {
-    title: "Short Break",
-    subtitle: "",
-    content: "<b>10 minutes</b>, once you're back, we will continue with the session on editing your resume and portfolio",
-    presenterContent: "",
+    title: 'Short break',
+    subtitle: '',
+    content:
+      '<b>Ten minutes</b> of silence in this template. After the break, resume with resume/portfolio slides replaced by your agenda.',
+    presenterContent: '',
     icon: Clock10,
-    color: "bg-gray-50"
+    color: 'bg-gray-50',
   },
   {
-    title: "Algorithmic Job Matching",
-    subtitle: "Beyond the Job Board",
-    content: "In 2026, AI matches you based on personality assessments and 'biography' analysis. Use platforms that surface your profile to relevant recruiters.",
-    list: ["Talentprise: Value-based matching", "LinkedIn Premium: AI Gap Analysis", "ResumeNerd: Bio-to-Role alignment"],
-    presenterContent: "Job matching is changing. It's not just keywords anymore, it's about 'biography' and 'value'. Talk about what you can do is not matters, what you did and improve from there.",
+    title: 'Matching algorithms (vague)',
+    subtitle: 'No platform specifics required',
+    content:
+      'Hypothetical recruiters weigh profiles, skills, and narrative fit. Replace with your hiring context later.',
+    list: ['Value alignment (fake)', 'Gap summaries (fake)', 'Bio-to-role toy examples'],
+    presenterContent: 'Stress authenticity over keyword stuffing.',
     icon: Briefcase,
-    color: "bg-emerald-50"
+    color: 'bg-emerald-50',
   },
   {
-    title: "Beating the ATS",
-    subtitle: "Resume Optimization vs. Authenticity",
-    content: "AI scanners (ATS) screen for keywords. Use tools like Jobscan to match requirements, but keep your 'Unique Snowflake' personality in the content.",
-    list: ["Match scores vs. Job Descriptions", "Keyword coverage optimization", "Avoiding 'over-automation' patterns"],
-    presenterContent: "ATS tips. Use AI to optimize, but keep it authentic. Don't look like a bot.",
+    title: 'Screening systems (abstract)',
+    subtitle: 'Keywords vs. voice',
+    content:
+      'Automated filters exist; balance tuning with a human-readable story. This sentence is long on purpose to test wrapping.',
+    list: ['Score vs. job text', 'Coverage ideas', 'Avoid robotic tone'],
+    presenterContent: 'One cautionary anecdote — make it fictional.',
     icon: ShieldCheck,
-    color: "bg-red-50"
+    color: 'bg-red-50',
   },
   {
-    title: "AI Mock Interviews",
-    subtitle: "Agentic Interviewing Practice",
-    content: "Prepare with AI agents that behave like real recruiters. They don't just ask questions—they probe your answers for depth.",
-    list: ["SpectraSeek: Dynamic follow-up questions", "Nexvo.AI: Indian campus placement patterns", "Yoodli: Speech & communication analysis"],
-    presenterContent: "Mock interviews with AI. Mention SpectraSeek, Nexvo, and Yoodli.",
+    title: 'Practice interviews',
+    subtitle: 'Agents as sparring partners',
+    content:
+      'Role-play tools can probe follow-ups. Name no vendor you have not cleared for the audience.',
+    list: ['Dynamic follow-ups', 'Campus-style drills', 'Speech feedback toys'],
+    presenterContent: 'Run a 60-second demo or skip entirely.',
     icon: MessageSquare,
-    color: "bg-teal-50"
+    color: 'bg-teal-50',
   },
   {
-    title: "The 2026 Portfolio Strategy",
-    subtitle: "Real-World Utility > Flashy AI",
-    content: "Hiring managers want to see 'Human-in-the-Loop' systems and 'Explainable AI'. Show that you can solve real problems with intelligent tools.",
-    list: ["RAG-based Document Assistants", "Explainable Coding Tutors", "Privacy-First Local AI Solutions"],
-    presenterContent: "RAG: If you ask them about something that happened yesterday, they won't know it because it wasn't in their textbook back then. They might even guess and give you a wrong answer because they want to be helpful. | When you ask a question, the student doesn't just answer from memory. First, they sprint to the library, grab the newest, most relevant book on that topic, read the specific page, and then answer your question.",
+    title: 'Portfolio themes (sample)',
+    subtitle: 'Utility over glitter',
+    content:
+      'Show systems with clear boundaries, observability, and privacy posture. These bullets are thematic placeholders.',
+    list: ['Document helpers', 'Explainable tutors', 'Local-first experiments'],
+    presenterContent: 'RAG analogy: textbook vs. library sprint — keep it short.',
     icon: Trophy,
-    color: "bg-amber-50"
+    color: 'bg-amber-50',
   },
   {
-    title: "High-Impact Project Ideas",
-    subtitle: "Differentiate Your Portfolio",
-    content: "Focus on projects that bridge the gap between theory and deployment. These are the most sought-after skills in 2026.",
-    list: ["Autonomous Drone Navigation (RL)", "Predictive Maintenance for IIoT", "Emotion Recognition from Multi-modal data"],
-    presenterContent: "Project ideas. Drone nav, IIoT, Emotion recognition. These show advanced skills.",
+    title: 'Project ideas (fictional)',
+    subtitle: 'Differentiation examples',
+    content:
+      'Robotics, industrial sensors, and multimodal classifiers appear here to stress-test list height.',
+    list: ['Autonomous toy robots', 'Predictive maintenance story', 'Emotion classifiers (synthetic data only)'],
+    presenterContent: 'Warn about sensitive biometric data in real projects.',
     icon: Cpu,
-    color: "bg-rose-50"
+    color: 'bg-rose-50',
   },
   {
-    title: "Certification Pathways",
-    subtitle: "Proving Your Competency",
-    content: "In a crowded market, industry-standard certs are the 'Proof of Work'. Prioritize Cloud-AI and foundational engineering certs.",
-    list: ["AWS Certified AI Practitioner", "Azure AI Fundamentals (AI-900)", "IBM AI Engineering Professional"],
-    presenterContent: "Certs matter. AWS, Azure, IBM. 'Proof of Work'.",
+    title: 'Certification slots',
+    subtitle: 'Verify before you claim',
+    content:
+      'Cloud and AI foundations are common checklist items. Replace with credentials you personally hold.',
+    list: ['Vendor A — intro track', 'Vendor B — fundamentals', 'Vendor C — engineering path'],
+    presenterContent: 'Certs are optional; skills still need proof.',
     icon: GraduationCap,
-    color: "bg-blue-50"
+    color: 'bg-blue-50',
   },
   {
-    title: "Ethics & Sovereignty",
-    subtitle: "The Regulatory Tsunami",
-    content: "EU AI Act enforcement begins in 2026. Companies are hiring 'Ethics & Governance' officers. Understanding bias and privacy is now a technical requirement.",
-    list: ["Trustworthy AI Standards", "On-premises/Edge AI for data privacy", "AI Governance Frameworks"],
-    presenterContent: "Ethics and Regulation. EU AI Act. Data privacy is huge.",
+    title: 'Ethics & governance',
+    subtitle: 'Regulation as background',
+    content:
+      'Jurisdictions differ; treat this as a reminder to read primary sources. No legal advice in a slide deck.',
+    list: ['Trust patterns', 'Edge deployment', 'Policy templates'],
+    presenterContent: 'Invite compliance friends for Q&A if needed.',
     icon: ShieldCheck,
-    color: "bg-slate-100"
+    color: 'bg-slate-100',
   },
   {
-    title: "Your 8-Week Action Plan",
-    subtitle: "Phase 1 & 2: Mapping & Optimization",
-    content: "Weeks 1-4: Map the market and optimize your resume. Identify the 'Hybrid Skills' needed for your target roles.",
-    list: ["Skill Gap Analysis via LLMs", "ATS-Friendly Resume Architecture", "Market Mapping (Regional Focus)"],
-    presenterContent: "Action Plan Phase 1 & 2. Map the market, fix resume.",
+    title: 'Eight-week plan (phase one)',
+    subtitle: 'Mapping and polish',
+    content:
+      'Weeks one through four: inventory skills, tighten materials, and rehearse elevator lines. Numbers are arbitrary.',
+    list: ['Gap chat with a mentor', 'Readable resume layout', 'Market scan (public sources)'],
+    presenterContent: 'Adjust timeline to your cohort.',
     icon: Zap,
-    color: "bg-yellow-50"
+    color: 'bg-yellow-50',
   },
   {
-    title: "Your 8-Week Action Plan",
-    subtitle: "Phase 3 & 4: Rehearsal & Execution",
-    content: "Weeks 5-8: Shift to high-pressure interview practice and networking automation. Use agentic tools to simulate technical rounds.",
-    list: ["Dynamic Mock Interviews", "Portfolio Deployment", "Automated Networking Workflows"],
-    presenterContent: "Action Plan Phase 3 & 4. Rehearse and Execute. Mock interviews, networking.",
+    title: 'Eight-week plan (phase two)',
+    subtitle: 'Rehearsal and outreach',
+    content:
+      'Weeks five through eight: mock rounds, ship demos, and polite automation for follow-ups.',
+    list: ['Timed practice', 'Deploy artifacts', 'Lightweight CRM habits'],
+    presenterContent: 'End with energy, not exhaustion.',
     icon: Zap,
-    color: "bg-orange-50"
+    color: 'bg-orange-50',
   },
   {
-    title: "Conclusion: The Hybrid Advantage",
-    subtitle: "Collaborate, Don't Compete",
-    content: "The future belongs to the 'Human in the Loop'. Use AI tools to amplify your capability, not as a shortcut. Be the architect of intelligent systems.",
-    list: ["Master Agentic IDEs", "Think Socratically", "Prioritize Ethical Implementation"],
-    presenterContent: "Conclusion. Collaborate, don't compete. Be the architect.",
+    title: 'Closing theme',
+    subtitle: 'Collaborate with tools',
+    content:
+      'Humans remain accountable for outcomes. Tools amplify; they do not replace judgment in this narrative.',
+    list: ['Know your stack', 'Ask better questions', 'Ship responsibly'],
+    presenterContent: 'One sentence recap, then invite discussion.',
     icon: Trophy,
-    color: "bg-yellow-50"
+    color: 'bg-yellow-50',
   },
   {
-    title: "Thank You",
-    subtitle: "Questions?",
-    content: "",
-    presenterContent: "Start talking about my personal project and that's how I built this presentation and connected with mobile to show you in about 40 min. Leverage AI. Thank you. Floor open for questions",
+    title: 'Thank you',
+    subtitle: 'Q&A',
+    content: '',
+    presenterContent:
+      'Thank the audience; mention this build is a UI sample; open the floor for questions without personal timelines.',
     isThankYou: true,
     icon: Trophy,
-    color: "bg-slate-100"
-  }
+    color: 'bg-slate-100',
+  },
 ];
